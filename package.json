@@ -1,15 +1,20 @@
 {
-  "name": "GearBest",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "compile:sass": "node-sass sass/main.scss css/style.css -w"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {},
-  "devDependencies": {
-    "node-sass": "^4.7.2"
-  }
+    "name": "GearPrice",
+    "version": "1.0.0",
+    "description": "Gearprice marketing and support page.",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "compile:sass": "node-sass sass/main.scss css/style.css -w"
+    },
+    "author": "Web Paquitos",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "express": "^4.16.3",
+        "nodemailer": "^4.6.4"
+    },
+    "devDependencies": {
+        "node-sass": "^4.7.2"
+    }
 }
