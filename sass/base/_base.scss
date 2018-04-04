@@ -1,0 +1,36 @@
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    // This defines what a 1rem is
+    font-size: 62.5%; // 1rem = 10px; 10px/16px = 62.5%
+
+    // Attention - Order is important
+    @include respond(tab-land) { // 1rem = 9px; 9/16 = 56.25%
+        font-size: 56.25%;
+    }
+
+    @include respond(tab-port) {
+        font-size: 50%; // 1rem = 8px; 8/16 = 50%
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px; 12/16 = 75%
+    }
+}
+
+body {
+    box-sizing: border-box;
+    padding: 3rem;
+    background: #232526;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
