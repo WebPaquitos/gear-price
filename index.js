@@ -1,38 +1,36 @@
 const express = require('express');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 
 const app = express();
 
 const transport = nodemailer.createTransport({
-    host: 'smtp.mailtrap.io',
-    port: 2525,
+    host: 'smtp.gmail.com',
+    port: 465,
     auth: {
-        user: '4805bbd89a204a',
-        pass: 'efd0172aedb327',
-    }
+        user: 'david.alecrim1@gmail.com',
+        pass: 'cfmejuaieeoqsuit',
+    },
 });
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('.'));
 
 app.post('/message', (req, res) => {
-    console.log('message', req.body);
-
     // setup email data with unicode symbols
+    const { name, email, message } = req.body;
+
      let mailOptions = {
-         from: 'luis.fgbo@gmail.com', // sender address
-         to: 'bar@example.com', // list of receivers
-         subject: `Gearbest Mail from ${req.body.name} with mail ${req.body.email}`, // Subject line
-         text: req.body.message, // plain text body
-         html: `<p>${req.body.message}</p>` // html body
+         from: 'david.alecrim1@gmail.com', // sender address
+         to: ['david.alecrim1@gmail.com', 'devops.apple@gmail.com', 'sousadax@gmail.com', 'oliveira_011@hotmail.com'], // list of receivers
+         subject: `GearPrice mail from ${name} with mail ${email}`, // Subject line
+         text: message, // plain text body
+         html: `<p>${message}</p>` // html body
      };
 
      // send mail with defined transport object
      transport.sendMail(mailOptions, (error, info) => {
-         if (error) {
-             return console.log(error);
-         }
+         if (error) return console.log(error);
          console.log('Message sent: %s', info.messageId);
      });
 
