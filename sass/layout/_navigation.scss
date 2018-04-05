@@ -45,19 +45,20 @@
         }
 
         @include respond(phone) {
-            top: 3.5rem;
-            right: 3.5rem;
+            top: 4rem;
+            right: 4rem;
         }
     }
 
     &__nav {
         height: 100vh;
-        width: 0;
+        width: 100%;
         position: fixed;
         top: 0;
-        left: 0;
+        left: -100%;
         z-index: 1500;
         opacity: 0;
+        visibility: hidden;
         transition: all .8s  cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
 
@@ -106,7 +107,9 @@
     }
 
     &__checkbox:checked ~ &__nav {
+        left: 0;
         opacity: 1;
+        visibility: visible;
         width: 100%;
     }
 

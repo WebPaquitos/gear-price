@@ -118,4 +118,15 @@
             font-size: 4rem;
         }
     }
+
+    @include respond(phone) {
+        height: 75rem;
+        &__side {
+            height: 75rem;
+
+            &--back {
+                display: none;
+            }
+        }
+    }
 }
