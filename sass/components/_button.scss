@@ -89,4 +89,17 @@
         box-shadow: 0 0.5rem 2rem rgba($color-black, .15);
         transform: translateY(0px);
     }
+
+    &--green {
+
+        &:link, &:visited {
+            color: $color-primary-light;
+            border-bottom: 1px solid $color-primary-light;
+        }
+
+        &:hover {
+            background-color: $color-primary-light;
+            color: $color-white;
+        }
+    }
 }
